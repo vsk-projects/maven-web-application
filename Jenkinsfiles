@@ -16,6 +16,7 @@ node{
 	sh "${mavenHome}/bin/mvn clean sonar:sonar"
 	}
 	
+	/*
 	stage('UploadArtifactIntoNexus'){
 	sh "${mavenHome}/bin/mvn clean deploy"
 	}
@@ -27,14 +28,16 @@ node{
 	sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.127.140.125:/opt/apache-tomcat-9.0.52/webapps/"
 	}
 	}
-
-		stage('SendEmailNotification')
+        
+	*/
+	
+	stage('SendEmailNotification')
 	{
 	emailext body: '''Build Over !!
 
-    Regards,
-    vijay kumar,
-    9885363950''', subject: 'Build Over....!!', to: 'vk1432073@gmail.com'
+        Regards,
+	vijay kumar,
+	9885363950''', subject: 'Build Over....!!', to: 'vk1432073@gmail.com'
 	}
 	
 }
